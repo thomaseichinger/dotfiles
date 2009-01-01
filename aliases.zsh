@@ -38,3 +38,9 @@ alias gdi='git diff'
 
 # misc.
 alias now='date'
+
+# freeBSD specifics
+if [[ `uname` == "FreeBSD" ]]; then
+  alias stats='tmux attach -t stats'
+fi
+
