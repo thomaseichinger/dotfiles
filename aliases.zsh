@@ -41,6 +41,7 @@ alias now='date'
 
 # freeBSD specifics
 if [[ `uname` == "FreeBSD" ]]; then
-  alias stats='tmux attach -t stats'
+  alias setup_tmux='source ~/dotfiles/tmux/setup_stats_session.zsh'
+  alias stats='setup_tmux; tmux attach -t stats'
 fi
 
