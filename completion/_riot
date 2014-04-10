@@ -22,6 +22,7 @@ _nouns=(
         'env:set various environment variables'
         )
 
+#TODO: add descriptions
 local -a _adjectives_env
 _adjectives_env=(
             'ports:ports asd'
