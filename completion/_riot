@@ -1,0 +1,93 @@
+#compdef riot
+#autoload
+
+local curcontext="$curcontext" state line expl
+typeset -A opt_args
+#set -x
+
+_list_ports() {
+  _avail_ports=`find /dev -name '*tty.*' 2>/dev/null | egrep '.usb'`
+}
+
+_arguments \
+        '1: :->nouns'\
+        '2: :->adjectivs'\
+        '3: :->verbs'
+
+local -a _nouns
+_nouns=(
+        'RIOT:change to RIOT repo'
+        '3rd_cpu:change to thirdpart cpu repo'
+        '3rd_board:change to thirdpart board repo'
+        'env:set various environment variables'
+        )
+
+local -a _adjectives_env
+_adjectives_env=(
+            'ports:ports asd'
+            'boards:boards llsk'
+            'quiet:quiet? ls '
+             )
+
+local -a _verbs_ports
+_verbs_ports=(
+              'is:asfdas ss'
+              'list:ökvkxöl xvc'
+              'reset:xvcxv'
+              'set:?'
+              )
+
+local -a _verbs_boards
+_verbs_boards=(
+              'is:asfdas ss'
+              'list:ökvkxöl xvc'
+              'reset:xvcxv'
+              'set:?'
+              )
+
+local -a _verbs_quiet
+_verbs_quiet=(
+              'true:true'
+              'false:false'
+              )
+
+
+case $state in
+  nouns)
+      _describe -t commands "riot subcommands" _nouns
+      return  
+  ;;
+  adjectivs)
+      case $words[2] in
+        RIOT)
+            _files -W $RIOTSUPER/RIOT
+        ;;
+        3rd_cpu)
+            _files -W $RIOTSUPER/thirdparty_cpu
+        ;;
+        3rd_board)
+            _files -W $RIOTSUPER/thirdparty_boards
+        ;;
+        env)
+            _describe -t commands "env subcommands" _adjectives_env
+        ;; 
+      esac 
+  ;;
+  verbs)
+      case $words[3] in
+        ports)
+          _describe -t commands "ports subcommands" _verbs_ports
+          _list_ports
+          _wanted _avail_ports expl "available ports" compadd -a _avail_ports
+        ;;
+        boards)
+          _describe -t commands "boards subcommands" _verbs_boards
+        ;;
+        quiet)
+          _describe -t commands "quiet subcommands" _verbs_quiet
+        ;;
+      esac
+  ;;
+  *)
+      ;;
+esac
