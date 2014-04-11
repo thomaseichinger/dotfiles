@@ -3,6 +3,7 @@ export RIOTSUPER="$HOME/code/RIOT"
 export RIOT="$RIOTSUPER/RIOT"
 export boards="$RIOT/boards"
 export projects="$RIOTSUPER/projects"
+export MAKE=`which make`
 
 none="none"
 
