@@ -6,13 +6,20 @@ alias unload_ftdi='sudo kextunload -b com.apple.driver.AppleUSBFTDI'
 alias load_ftdi='sudo kextload -b com.apple.driver.AppleUSBFTDI'
 alias devdevs='ls /dev/tty.*'
 alias pyterm='python2.7 ~/code/RIOT/RIOT/dist/tools/pyterm/pyterm.py $PORT'
+alias g='git'
 
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
 # List direcory contents
-alias ls='ls -G'
-alias lsa='ls -lah'
-alias l='ls -la'
-alias ll='ls -l'
-alias la='ls -lA'
+alias ls='ls $colorflag'
+alias lsa='ls -lah $colorflag'
+alias l='ls -la $colorflag'
+alias ll='ls -l $colorflag'
+alias la='ls -lA $colorflag'
 
 # Basic directory operations
 alias ...='cd ../..'
@@ -35,6 +42,25 @@ alias egrep='egrep --colour=auto'
 # git shortcuts
 alias gst='git status'
 alias gdi='git diff'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Gzip-enabled `curl`
+alias gurl='curl --compressed'
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # misc.
 alias now='date'
