@@ -5,7 +5,7 @@ alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles FALSE &
 alias unload_ftdi='sudo kextunload -b com.apple.driver.AppleUSBFTDI'
 alias load_ftdi='sudo kextload -b com.apple.driver.AppleUSBFTDI'
 alias devdevs='ls /dev/tty.*'
-alias pyterm='python2.7 ~/code/RIOT/RIOT/dist/tools/pyterm/pyterm.py $PORT'
+alias pyterm='python2.7 ~/code/RIOT/RIOT/dist/tools/pyterm/pyterm -p $PORT'
 alias g='git'
 
 # Detect which `ls` flavor is in use
@@ -27,15 +27,15 @@ alias ..='cd ..'
 alias md='mkdir -p'
 
 # file operations
-alias cp='cp -iv'
+alias cp='cp -i'
 alias rcp='rsync -v --progress'
 alias rmv='rsync -v --progress --remove-source-files'
 alias mv='mv -iv'
 alias rm='rm -iv'
-alias rmdir='rmdir -v'
+alias rmdir='rmdir'
 alias ln='ln -v'
-alias chmod="chmod -c"
-alias chown="chown -c"
+alias chmod="chmod"
+alias chown="chown"
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 
@@ -70,4 +70,3 @@ if [[ `uname` == "FreeBSD" ]]; then
   alias setup_tmux='source ~/dotfiles/tmux/setup_stats_session.zsh'
   alias stats='setup_tmux; tmux attach -t stats'
 fi
-

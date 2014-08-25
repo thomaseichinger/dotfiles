@@ -76,5 +76,5 @@ try_source $ZROOT/apps_options.zsh
 # Load PROMPT definition
 try_source $ZROOT/prompt.zsh
 
-export EDITOR="subl -w"
+export EDITOR="atom -w"
 export PATH="/usr/local/bin:$PATH"
