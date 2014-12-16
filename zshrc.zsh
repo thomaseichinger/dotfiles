@@ -77,4 +77,4 @@ try_source $ZROOT/apps_options.zsh
 try_source $ZROOT/prompt.zsh
 
 export EDITOR="atom -w"
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
