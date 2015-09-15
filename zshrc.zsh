@@ -49,6 +49,10 @@ zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
 fpath=($ZROOT/completion $fpath)
 
 ##
+# iterm integration
+#source ~/.iterm2_shell_integration.`basename $SHELL`
+
+##
 # Load basic functions
 if [[ -e $ZROOT/basics.zsh ]]; then
     source $ZROOT/basics.zsh
@@ -76,5 +80,6 @@ try_source $ZROOT/apps_options.zsh
 # Load PROMPT definition
 try_source $ZROOT/prompt.zsh
 
-export EDITOR="atom -w"
+export EDITOR="subl -w"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+

@@ -1,9 +1,9 @@
 # encryption/decryption
 function encrypt() {
-    openssl des3 -salt -in $1 -out $2
+    openssl aes-256-cbc -salt -in $1 -out $2
 }
 function decrypt() {
-    openssl des3 -d -salt -in $1 -out $2
+    openssl aes-256-cbc -d -salt -in $1 -out $2
 }
 
 # 
