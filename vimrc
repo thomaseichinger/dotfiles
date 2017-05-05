@@ -11,3 +11,6 @@ set nolist  " list disables linebreak
 set textwidth=80
 "set textwidth=0
 set wrapmargin=0
+
+set expandtab
+set tabstop=4
