@@ -1,3 +1,4 @@
+
 local ZROOT=$HOME/dotfiles
 
 ZDOTDIR=${ZDOTDIR:-${HOME}/.zsh}
@@ -12,7 +13,7 @@ export TMPPREFIX="${TMPDIR}/zsh"
 
 [[ ! -d "${TMP}" ]] && mkdir "${TMP}"
 
-bindkey '^A' beginning-of-line
+bindkey '^S' beginning-of-line
 bindkey '^E' end-of-line
 
 # zmv -  a command for renaming files by means of shell patterns.
